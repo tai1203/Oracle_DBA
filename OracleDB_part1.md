@@ -17,6 +17,6 @@
 * 一或多個application server各自負責部分的操作。 Application server 包含很大部份的應用邏輯，且提供資料給用戶，並處理一些程序運算以減輕database server的負擔。Application server更可以作為用戶與Database server之間的接口，並提供額外的安全性。
 * 儲存用戶在操作系統時的資訊。
 #### 總而言之，這個架構可以協助系統做到下列事情：
-- 協助驗證用戶端（例如 網頁瀏覽器）
-- 連接oracle db server
-- 履行用戶的操作
+- 協助驗證用戶端（例如 網頁瀏覽器）。
+- 連接oracle db server。
+- 履行用戶的操作。
