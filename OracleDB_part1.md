@@ -27,3 +27,21 @@
 ## OracleDB Server 架構總覽：
 ![image](./image/oracleArchitecture.png)
 
+## Oracle DB server 架構主要有三個部分：
+* memory structures
+* process structures
+* storage structures
+
+## Oracle DB 組成：
+主要是由兩個架構組成：實體架構以及邏輯架構。因此可以在存取實體架構資料時不影響邏輯架構的資料。
+
+在memory structures的情境如下：當程序啟動時，SGA（System Global Area)會被分派出來，且background processes 會開始執行。processes是在memory中運作的程式，被定義為在機器或是OS中的thread of control。在開始database的部分後，the oracle software會與特定database相關聯，稱為掛載資料庫。等到資料庫準備好可以開啟了，有授權的用戶就可以開始使用了。
+
+
+# ----------------------------------------------------------
+## Database 結構及配置：
+![image](./image/DBconfig.png)
+
+## Nonclustered System:
+假設有很多DB在同一台Server上，
+## Clustered System:
