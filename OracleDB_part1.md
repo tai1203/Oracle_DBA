@@ -43,5 +43,20 @@
 ![image](./image/DBconfig.png)
 
 ## Nonclustered System:
-假設有很多DB在同一台Server上，
+每一個應用只會對應一個DB，假設有很多DB在同一台Server上，那他們的應用以及DB會被區分開來。
 ## Clustered System:
+A Real Applications Cluster(RAC) database 通常有好幾個應用在不同server上，並公用一個shared database。
+
+
+
+# ----------------------------------------------------------
+## 連線資料庫的差別：
+![image](./image/SessConn.png)
+## Connection:
+在user's process 和 server's process 之間的溝通。
+## Session:
+user 開始sqlplus 開啟連線到中止連線，這整個過程就稱為session。
+
+# ----------------------------------------------------------
+![image](./image/dbmem.png)
+## 資料庫記憶體架構：
