@@ -59,4 +59,26 @@ user 開始sqlplus 開啟連線到中止連線，這整個過程就稱為session
 
 # ----------------------------------------------------------
 ![image](./image/dbmem.png)
-## 資料庫記憶體架構：
+## Oracle資料庫記憶體架構：
+Oracle Database 建立與使用記憶體有很多不同的目的，例如，儲存執行中的程式、在使用者之中分享資料、提供資料區域給每一個使用者。
+
+### 兩種基本記憶體架構：
+* System Global Area (SGA): 共享記憶體群組，包含資料以及控制oracle DB instance 的資料。 SGA 是所有server 以及後端程序共用，儲存在SGA的資料包含cached data 以及 共享SQL區域。
+
+* Program Global Areas (PGA): 記憶體空間內包含資料和server 或是 background process 的控制資訊。 PGA 是被oracle DB 在開始執行背景程序時創建的非共享記憶體空間，每一個server process 或是 background process 都有自己的PGA，
+### Oracle DB Memory Structures
+SGA 包含內容介紹：
+-   Shared Pool: Shared pool緩存了多重程序數據的類型。舉個例子，sharedpool存儲瞭解析之後的SQL,PL/SQL代碼,系統參數,以及數據字典信息.數據庫中出現的每個操作幾乎都會涉及到shared pool
+
+-   Database buffer cache: 又稱 buffercache，用來儲存從數據文件中讀取到的資料塊的拷貝，所有用戶連接到資料庫instance，以共享的方式訪問buffer cache。
+
+-   KEEP buffer Pool: 這種池是爲訪問頻繁但總因爲默認池空間狹小總被換出的塊準備的，keep pool的目標是將對象保留在內存中，用來避免I/O操作。默認的塊大小是8KB
+-   RECYCLE buffer Pool:  這種池爲不會頻繁使用的塊準備的。Recycle pool防止一些不必要對象在cache中消耗空間。
+-   nK bufffer cache: cache使用了非標準塊大小的表空間而設置的2KB,4KB以及16KB的池。
+-   Redo log buffer: Redo log buffer是在SGA中的一個循環buffer，它存放了redo條目，這些條目描述了數據庫中的修改。Redo entries（redo條目）包含重構或重做數據庫中所做的修改（通過DML或DDL）。數據庫在recovery過程中會應用redo entries到數據文件去重構丟失的更改。
+-   Large Pool: Large pool是個可選內存區，它用來做內存分配。裏面分配的大小 往往比sharedpool中分配的要大。
+-   Java Pool: Java pool是一個內存區域，存儲session相關的java代碼以及JavaVirtual Machine（JVM）中的數據。
+-   Streams Pool: Streams pool存儲緩衝的隊列消息，以及提供OracleStreams 捕獲進程和應用進程所使用的內存。Streams pool被Oracle Streams獨立使用。
+
+
+
